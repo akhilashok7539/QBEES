@@ -1,0 +1,53 @@
+<h6 style="text-align: center;">ORDER DETAILS</h6>
+<hr>
+<p>Customer Name: {{details.customer_id.name}}</p>
+<p>Customer Number & Address: {{details.customer_id.phone}}, {{details.customer_id.address}}</p>
+
+
+<p>Booking ID : {{details.order_id}}</p>
+<p>Total Amount : {{details.total_price}}</p>
+<p>Payment Mode : {{details.order_pmode}}</p>
+<p>Shop Name : {{sname}}</p>
+<p>Shop Contact Number : {{sphone}}</p>
+<button *ngIf="status == 'Assigned'" (click)="pending()" style="    float: right;">Reject Order</button>
+
+<!-- <p>Shop Name : {{shopdetails.shop_id.shop_name}}</p> -->
+<p *ngIf="!isStatus">Order Assigned to : {{dboyName}}</p>
+
+<hr>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">Produt</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let itemsss of itemresult;let i = index;">
+            <th scope="row">{{i+1}}</th>
+            <td>{{itemsss.name}}</td>
+            <td>{{itemsss.qnty}}</td>
+            <td>{{itemsss.price}}</td>
+        </tr>
+
+    </tbody>
+
+</table>
+
+<div *ngIf="isStatus">
+    <label for="">Select a delivery Boy</label>
+    <select [(ngModel)]="dboyid" class="form-control">
+        <option *ngFor="let deliveryboys of deliveryboys" value="{{deliveryboys._id}}" >{{deliveryboys.name}}</option>
+    </select>
+</div>
+
+
+<div class="row" style="justify-content: center !important;margin-top: 30px;">
+    <Button *ngIf="isStatus" class="btn btn-dark" (click)="assgin()">Assign</Button> &nbsp;
+    <!-- <Button class="btn btn-success">Approve</Button>&nbsp; -->
+    <Button *ngIf="isStatus" class="btn btn-danger" (click)="reject()">Reject</Button>
+</div>

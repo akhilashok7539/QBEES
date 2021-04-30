@@ -1,0 +1,189 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Add Shop Menu</h4>
+
+            </div>
+        </div>
+        <form [formGroup]="shopadminmenuFormRegistration">
+
+            <div class="row">
+
+                <!-- <div class="col-sm-4">
+                    <label for=""> Shop Name</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="sname" [ngClass]="{ 'is-invalid': submitted && f.sname.errors }" formControlName="sname">
+                    <option value="Choose a option" disabled selected>Choose a option </option>
+
+                    </select>
+                    <div *ngIf="submitted && f.sname.errors" class="invalid-feedback">
+                        <div *ngIf="f.sname.errors.required">Shop name is required</div>
+
+                    </div>
+                </div> -->
+
+                <div class="col-sm-4">
+                    <label for=""> Location</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="location" [ngClass]="{ 'is-invalid': submitted && f.location.errors }" formControlName="location">
+                    <option value="Choose a option" disabled selected>Choose a option </option>
+
+                    </select>
+                    <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                        <div *ngIf="f.location.errors.required">Location is required</div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-4">
+                    <label for=""> Menu Name</label>
+
+                    <!-- <select name="" id="" class="form-control" [(ngModel)]="mname" [ngClass]="{ 'is-invalid': submitted && f.mname.errors }" formControlName="mname"> -->
+                    <!-- <option value="Choose a option" disabled selected>Choose a option </option> -->
+
+                    <!-- </select> -->
+                    <input type="text" class="form-control" [(ngModel)]="mname" placeholder="Enter the menu name" [ngClass]="{ 'is-invalid': submitted && f.mname.errors }" formControlName="mname">
+                    <div *ngIf="submitted && f.mname.errors" class="invalid-feedback">
+                        <div *ngIf="f.mname.errors.required">Menu name is required</div>
+
+                    </div>
+                </div>
+                <!-- <div class="col-sm-12">
+                    <label for=""> Choose Locations</label>
+                    <div class="row" style="padding: 15px;">
+                        <div class="radio-toolbar" *ngFor="let repeatsessiondays of repeatsessiondays">
+                            <input formControlName="check" (change)="onChange(repeatsessiondays.id, $event.target.checked)" type="checkbox" id="{{repeatsessiondays.day}}" name="radioFruit" value="{{repeatsessiondays.id}}">
+                            <label for="{{repeatsessiondays.day}}">{{repeatsessiondays.day}}</label>
+
+                        </div>
+                    </div>
+
+                </div> -->
+                <div class="col-sm-4">
+                    <label for="">Menu Description </label>
+                    <input type="text" class="form-control" placeholder="Enter the Menu Description" [(ngModel)]="mdes" [ngClass]="{ 'is-invalid': submitted && f.mdes.errors }" formControlName="mdes">
+
+                    <div *ngIf="submitted && f.mdes.errors" class="invalid-feedback">
+                        <div *ngIf="f.mdes.errors.required">Menu description is required</div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-4">
+                    <label for="">Purchase Rate </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Purchase Rate" [(ngModel)]="prate" [ngClass]="{ 'is-invalid': submitted && f.prate.errors }" formControlName="prate">
+
+                    <div *ngIf="submitted && f.prate.errors" class="invalid-feedback">
+                        <div *ngIf="f.prate.errors.required">Purchase rate is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Sales Rate </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Sales Rate" [(ngModel)]="srate" [ngClass]="{ 'is-invalid': submitted && f.srate.errors }" formControlName="srate">
+
+                    <div *ngIf="submitted && f.srate.errors" class="invalid-feedback">
+                        <div *ngIf="f.srate.errors.required">Sales rate is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Discount Percentage </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Discount Percentage" [(ngModel)]="dperc" [ngClass]="{ 'is-invalid': submitted && f.dperc.errors }" formControlName="dperc">
+
+                    <div *ngIf="submitted && f.dperc.errors" class="invalid-feedback">
+                        <div *ngIf="f.dperc.errors.required">Discount percentage is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Discount Amount </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Discount Amount" [(ngModel)]="damount" [ngClass]="{ 'is-invalid': submitted && f.damount.errors }" formControlName="damount">
+
+                    <div *ngIf="submitted && f.damount.errors" class="invalid-feedback">
+                        <div *ngIf="f.damount.errors.required">Discount amount is required</div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Product Available time </label>
+                    <input type="time" class="form-control" placeholder="Enter the Product Available time" [(ngModel)]="patime" [ngClass]="{ 'is-invalid': submitted && f.patime.errors }" formControlName="patime">
+
+                    <div *ngIf="submitted && f.patime.errors" class="invalid-feedback">
+                        <div *ngIf="f.patime.errors.required">Product available time is required</div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Product Closing time </label>
+                    <input type="time" class="form-control" placeholder="Enter the Product Closing time " [(ngModel)]="pctime" [ngClass]="{ 'is-invalid': submitted && f.pctime.errors }" formControlName="pctime">
+
+                    <div *ngIf="submitted && f.pctime.errors" class="invalid-feedback">
+                        <div *ngIf="f.pctime.errors.required">Product closing time is required</div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Menu Image </label>
+                    <input type="file" class="form-control" placeholder="Enter the Product Closing time " [(ngModel)]="mimages" [ngClass]="{ 'is-invalid': submitted && f.mimages.errors }" formControlName="mimages">
+
+                    <div *ngIf="submitted && f.mimages.errors" class="invalid-feedback">
+                        <div *ngIf="f.mimages.errors.required">Menu images is required</div>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-sm-4">
+                    <label for="">Show / Hide</label>
+                    <br> show
+                    <input type="radio"> Hide
+                    <input type="radio">
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Status</label>
+                    <br> Active
+                    <input type="radio"> Inactive
+                    <input type="radio">
+                </div>
+
+
+
+
+                <div class="col-sm-12">
+                    <button class="btn btn-warning" (click)="submit()">SUBMIT</button>
+                </div>
+
+
+            </div>
+
+        </form>
+    </div>
+</div>

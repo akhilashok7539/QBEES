@@ -1,0 +1,168 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Edit General Shop Menu</h4>
+
+            </div>
+        </div>
+        <form [formGroup]="generalshopmenuFormRegistration">
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <label for=""> Shop Name</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="sname" (change)="shopselcted(sname)" [ngClass]="{ 'is-invalid': submitted && f.sname.errors }" formControlName="sname">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option *ngFor="let s of results" value="{{s._id}}" >{{s.shop_name}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.sname.errors" class="invalid-feedback">
+                        <div *ngIf="f.sname.errors.required">Shop name is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for=""> Location</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="location" [ngClass]="{ 'is-invalid': submitted && f.location.errors }" formControlName="location">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option *ngFor="let s of locations" value="{{s._id}}" >{{s.location}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                        <div *ngIf="f.location.errors.required">Location is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for=""> Item Name</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="iname" [ngClass]="{ 'is-invalid': submitted && f.iname.errors }" formControlName="iname">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option *ngFor="let s of generalmenu" value="{{s._id}}" >{{s.item_name}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.iname.errors" class="invalid-feedback">
+                        <div *ngIf="f.iname.errors.required">Item name is required</div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-4">
+                    <label for=""> Item Quantity </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Item Quantity" [(ngModel)]="iquant" [ngClass]="{ 'is-invalid': submitted && f.iquant.errors }" formControlName="iquant">
+
+                    <div *ngIf="submitted && f.iquant.errors" class="invalid-feedback">
+                        <div *ngIf="f.iquant.errors.required">Item quantity is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Item Price</label>
+                    <input type="number" class="form-control" placeholder="Enter Your Item Price" [(ngModel)]="iprice" [ngClass]="{ 'is-invalid': submitted && f.iprice.errors }" formControlName="iprice">
+
+                    <div *ngIf="submitted && f.iprice.errors" class="invalid-feedback">
+                        <div *ngIf="f.iprice.errors.required">Item price is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Item Sales Rate</label>
+                    <input type="number" class="form-control" placeholder="Enter the Item Sales Rate" [(ngModel)]="israte" [ngClass]="{ 'is-invalid': submitted && f.israte.errors }" formControlName="israte">
+
+                    <div *ngIf="submitted && f.israte.errors" class="invalid-feedback">
+                        <div *ngIf="f.israte.errors.required">Item sales rate is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Item MRP</label>
+                    <input type="number" class="form-control" placeholder="Enter the Item MRP" [(ngModel)]="imrp" [ngClass]="{ 'is-invalid': submitted && f.imrp.errors }" formControlName="imrp">
+
+                    <div *ngIf="submitted && f.imrp.errors" class="invalid-feedback">
+                        <div *ngIf="f.imrp.errors.required">Item MRP is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Item Discount Amount</label>
+                    <input type="number" class="form-control" placeholder="Enter the Item Discount Amount" [(ngModel)]="idamount" [ngClass]="{ 'is-invalid': submitted && f.idamount.errors }" formControlName="idamount">
+
+                    <div *ngIf="submitted && f.idamount.errors" class="invalid-feedback">
+                        <div *ngIf="f.idamount.errors.required">Item discount amount is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Item Discount Percentage</label>
+                    <input type="number" class="form-control" placeholder="Enter the Item Discount Percentage" [(ngModel)]="idpercent" [ngClass]="{ 'is-invalid': submitted && f.idpercent.errors }" formControlName="idpercent">
+
+                    <div *ngIf="submitted && f.idpercent.errors" class="invalid-feedback">
+                        <div *ngIf="f.idpercent.errors.required">Item discount percentage is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Weight Display ?</label>
+                    <br> Yes
+                    <input type="radio" [(ngModel)]="weightstatus" value="Yes" formControlName="weightstatus"> No
+                    <input type="radio" [(ngModel)]="weightstatus" value="No" formControlName="weightstatus">
+                </div>
+
+                <div class="col-sm-4" *ngIf="weightstatus=='Yes'">
+                    <label for="">Weight</label>
+                    <input type="number" class="form-control" placeholder="Enter the Weight" [(ngModel)]="weight" [ngClass]="{ 'is-invalid': submitted && f.weight.errors }" formControlName="weight">
+
+                    <div *ngIf="submitted && f.weight.errors" class="invalid-feedback">
+                        <div *ngIf="f.weight.errors.required">Weight is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Add cleaning Charge?</label>
+                    <br> Yes
+                    <input type="radio" [(ngModel)]="charge" value="Yes" formControlName="charge"> No
+                    <input type="radio" [(ngModel)]="charge" value="No" formControlName="charge">
+                </div>
+
+                <div class="col-sm-4" *ngIf="charge == 'Yes'">
+                    <label for="">Cleaning Charge</label>
+                    <input type="number" class="form-control" placeholder="Enter the Cleaning Charge" [(ngModel)]="cleaning" formControlName="cleaning">
+
+
+                </div>
+
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>

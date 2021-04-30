@@ -1,0 +1,93 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">PRE-ORDERS</h4>
+
+            </div>
+
+            <div class="col-sm-4">
+                <!-- <button class="btn btn-primary" style="float: right;" routerLink="/addpreorders"> Add Pre-orders</button> -->
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <mat-table [dataSource]="dataSource" matSort>
+
+
+
+
+                    <!-- Order ID Column -->
+                    <ng-container matColumnDef="orderid">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Order ID</mat-header-cell>
+                        <mat-cell *matCellDef="let row;let i=index;">
+                            <!-- <img *ngIf="i == 0" src="./assets/img/new.gif" alt=""> -->
+                            {{row.porder_id}}
+                        </mat-cell>
+                    </ng-container>
+
+
+                    <!--Booking Date Column -->
+                    <ng-container matColumnDef="bookingdate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Booking Date </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.order_time | slice:0:10}} </mat-cell>
+                    </ng-container>
+
+                    <!--Customer Name & Address Column -->
+                    <ng-container matColumnDef="customernameandaddress">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Customer Name </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.customer_id.name}} </mat-cell>
+                    </ng-container>
+
+
+                    <!--Contact Number Column -->
+                    <ng-container matColumnDef="contactno">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Contact Number </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.customer_id.phone}} </mat-cell>
+                    </ng-container>
+
+
+                    <!-- Delivery Date Column -->
+                    <ng-container matColumnDef="deliverydate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Delivery Date </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.delivery_date}} </mat-cell>
+                    </ng-container>
+
+                    <!-- DeliveryTime Column -->
+                    <ng-container matColumnDef="deliverytime">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>DeliveryTime </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.delivery_time}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Assign Column -->
+                    <ng-container matColumnDef="status">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Status </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.order_status}}</mat-cell>
+                    </ng-container>
+
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <button class="btn btn-success" (click)="view(row)">View</button>
+
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

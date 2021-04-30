@@ -1,0 +1,78 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">GENERAL SHOP MENU</h4>
+
+            </div>
+
+            <div class="col-sm-4">
+                <button class="btn btn-danger" style="float: right;" routerLink="/addgeneralshopmenu"> Add General Shop Menu</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <mat-table [dataSource]="dataSource" matSort>
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                        <mat-cell *matCellDef="let row;let i = index;"> GM{{i+1}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Shop Name Column -->
+                    <ng-container matColumnDef="sname">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Shop Name </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.shop_id.shop_name}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Item Name Column -->
+                    <ng-container matColumnDef="itemname">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Item Name</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.generalmenu_id.item_name}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Item Price Column -->
+                    <ng-container matColumnDef="itemprice">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Item Price</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.itm_price}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Item Quantity Column -->
+                    <ng-container matColumnDef="itemquantity">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Item Quantity </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.itm_qnty}} </mat-cell>
+                    </ng-container>
+
+
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <button class="btn btn-success" (click)="edit(row)"><i class="fa fa-edit" style="color: white;"></i></button> &nbsp;
+                            <!-- <button class="btn btn-dark"><i class="fa fa-trash" style="color: white;"></i></button>&nbsp; -->
+                            <button class="btn btn-warning" (click)="active(row)" *ngIf="row.itm_status == 'Inactive'">Active </button>&nbsp;
+                            <button class="btn btn-danger" (click)="inactive(row)" *ngIf="row.itm_status == 'Active'">In-Active </button>
+
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

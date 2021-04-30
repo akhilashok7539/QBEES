@@ -1,0 +1,159 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Add Offers</h4>
+
+            </div>
+        </div>
+
+        <form [formGroup]="shopadminofferFormRegistration">
+
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <label for=""> Menu Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Menu Name" [(ngModel)]="mname" formControlName="mname">
+
+                    <!-- <div *ngIf="submitted && f.mname.errors" class="invalid-feedback">
+                        <div *ngIf="f.mname.errors.required">Menu name is required</div>
+
+                    </div> -->
+                </div>
+
+                <div class="col-sm-4">
+                    <label for=""> Offer Location</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Offer Location" [(ngModel)]="oloc" [ngClass]="{ 'is-invalid': submitted && f.oloc.errors }" formControlName="oloc">
+
+                    <div *ngIf="submitted && f.oloc.errors" class="invalid-feedback">
+                        <div *ngIf="f.oloc.errors.required">Offer location is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Offer Description </label>
+                    <input type="number" class="form-control" placeholder="Enter the Offer Description" [(ngModel)]="odes" [ngClass]="{ 'is-invalid': submitted && f.odes.errors }" formControlName="odes">
+
+                    <div *ngIf="submitted && f.odes.errors" class="invalid-feedback">
+                        <div *ngIf="f.odes.errors.required">Offer description is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Total No of Quantity </label>
+                    <input type="number" class="form-control" placeholder="Enter the Total No of Quantity  " [(ngModel)]="tqpurc" [ngClass]="{ 'is-invalid': submitted && f.tqpurc.errors }" formControlName="tqpurc">
+
+                    <div *ngIf="submitted && f.tqpurc.errors" class="invalid-feedback">
+                        <div *ngIf="f.tqpurc.errors.required">Total no of quantity is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Total No of Users </label>
+                    <input type="number" class="form-control" placeholder="Enter the Total No of Users  " [(ngModel)]="tnusers" [ngClass]="{ 'is-invalid': submitted && f.tnusers.errors }" formControlName="tnusers">
+
+                    <div *ngIf="submitted && f.tnusers.errors" class="invalid-feedback">
+                        <div *ngIf="f.tnusers.errors.required">Total no of users is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Offer Price </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Offer Price" [(ngModel)]="oprice" [ngClass]="{ 'is-invalid': submitted && f.oprice.errors }" formControlName="oprice">
+
+                    <div *ngIf="submitted && f.oprice.errors" class="invalid-feedback">
+                        <div *ngIf="f.oprice.errors.required">Offer price is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Actual Price </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Actual Price" [(ngModel)]="aprice" [ngClass]="{ 'is-invalid': submitted && f.aprice.errors }" formControlName="aprice">
+
+                    <div *ngIf="submitted && f.aprice.errors" class="invalid-feedback">
+                        <div *ngIf="f.aprice.errors.required">Actual price is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Available Date </label>
+                    <input type="date" class="form-control" placeholder="Enter Your Available Date" [(ngModel)]="adata" [ngClass]="{ 'is-invalid': submitted && f.adata.errors }" formControlName="adata">
+
+                    <div *ngIf="submitted && f.adata.errors" class="invalid-feedback">
+                        <div *ngIf="f.adata.errors.required">Available data is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Available Time </label>
+                    <input type="time" class="form-control" placeholder="Enter Your Available Time" [(ngModel)]="atime" [ngClass]="{ 'is-invalid': submitted && f.atime.errors }" formControlName="atime">
+
+                    <div *ngIf="submitted && f.atime.errors" class="invalid-feedback">
+                        <div *ngIf="f.atime.errors.required">Available time is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Closing Time </label>
+                    <input type="time" class="form-control" placeholder="Enter Your Closing Time " [(ngModel)]="ctime" [ngClass]="{ 'is-invalid': submitted && f.ctime.errors }" formControlName="ctime">
+
+                    <div *ngIf="submitted && f.ctime.errors" class="invalid-feedback">
+                        <div *ngIf="f.ctime.errors.required">Closing time is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Banner Images </label>
+                    <input type="file" class="form-control" placeholder="Enter Your Banner Images" [(ngModel)]="bimages" [ngClass]="{ 'is-invalid': submitted && f.bimages.errors }" formControlName="bimages">
+
+                    <div *ngIf="submitted && f.bimages.errors" class="invalid-feedback">
+                        <div *ngIf="f.bimages.errors.required">Banner images is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Show / Hide</label>
+                    <br> show
+                    <input type="radio"> Hide
+                    <input type="radio">
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Status</label>
+                    <br> Active
+                    <input type="radio"> Inactive
+                    <input type="radio">
+                </div>
+
+
+                <div class="col-sm-12">
+                    <button class="btn btn-warning" (click)="submit()">SUBMIT</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

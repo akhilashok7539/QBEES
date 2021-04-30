@@ -1,0 +1,235 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Edit Shop</h4>
+                <!-- <button (click)="add()">click</button> -->
+            </div>
+        </div>
+        <form [formGroup]="shopFormRegistration">
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <label for="">Shop Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Shop Name" [(ngModel)]="sname" [ngClass]="{ 'is-invalid': submitted && f.sname.errors }" formControlName="sname">
+
+                    <div *ngIf="submitted && f.sname.errors" class="invalid-feedback">
+                        <div *ngIf="f.sname.errors.required">Shop name is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Shop Category </label>
+                    <mat-select placeholder=" Shop Category" formControlName="userType" multiple>
+                        <mat-option #allSelected (click)="toggleAllSelection()" [value]="0">All</mat-option>
+
+                        <mat-option *ngFor="let filters of resultscat" [value]="filters._id">
+                            {{filters.category_name}}
+                        </mat-option>
+                    </mat-select>
+
+                </div>
+
+
+
+                <div class="col-sm-4">
+                    <label for="">Shop Address </label>
+                    <input type="text" class="form-control" placeholder="Enter Your Shop Address" [(ngModel)]="saddress" [ngClass]="{ 'is-invalid': submitted && f.saddress.errors }" formControlName="saddress">
+
+                    <div *ngIf="submitted && f.saddress.errors" class="invalid-feedback">
+                        <div *ngIf="f.saddress.errors.required">Shop address is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Shop Landline Number </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Shop  Landline Number" [(ngModel)]="sln" [ngClass]="{ 'is-invalid': submitted && f.sln.errors }" formControlName="sln">
+
+                    <div *ngIf="submitted && f.sln.errors" class="invalid-feedback">
+                        <div *ngIf="f.sln.errors.required">Shop landline number is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Shop Phone Number </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Shop  Phone Number" [(ngModel)]="sphn" [ngClass]="{ 'is-invalid': submitted && f.sphn.errors }" formControlName="sphn">
+
+                    <div *ngIf="submitted && f.sphn.errors" class="invalid-feedback">
+                        <div *ngIf="f.sphn.errors.required">Shop phone number is required</div>
+                        <div *ngIf="f.sphn.errors.pattern">Phone number must be valid number</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Shop Opening Time </label>
+                    <input type="time" class="form-control" placeholder="Enter Your Shop Opening Time" [(ngModel)]="sotime" [ngClass]="{ 'is-invalid': submitted && f.sotime.errors }" formControlName="sotime">
+
+                    <div *ngIf="submitted && f.sotime.errors" class="invalid-feedback">
+                        <div *ngIf="f.sotime.errors.required">Shop opening time is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Shop Closing Time </label>
+                    <input type="time" class="form-control" placeholder="Enter Your Shop Closing Time" [(ngModel)]="sctime" [ngClass]="{ 'is-invalid': submitted && f.sctime.errors }" formControlName="sctime">
+
+                    <div *ngIf="submitted && f.sctime.errors" class="invalid-feedback">
+                        <div *ngIf="f.sctime.errors.required">Shop closing time is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Profit Percentage </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Profit Percentage" [(ngModel)]="profit" [ngClass]="{ 'is-invalid': submitted && f.profit.errors }" formControlName="profit">
+
+                    <div *ngIf="submitted && f.profit.errors" class="invalid-feedback">
+                        <div *ngIf="f.profit.errors.required">Profit Percentage is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Minimum Order Value </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Minimum Order Value" [(ngModel)]="movalue" [ngClass]="{ 'is-invalid': submitted && f.movalue.errors }" formControlName="movalue">
+
+                    <div *ngIf="submitted && f.movalue.errors" class="invalid-feedback">
+                        <div *ngIf="f.movalue.errors.required">Minimum order value is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Shop Discount Amount </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Shop Discount Amount" [(ngModel)]="sdamnt" [ngClass]="{ 'is-invalid': submitted && f.sdamnt.errors }" formControlName="sdamnt">
+
+                    <div *ngIf="submitted && f.sdamnt.errors" class="invalid-feedback">
+                        <div *ngIf="f.sdamnt.errors.required">Shop discount amount is required</div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-4">
+                    <label for="">Shop Discount Percentage </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Shop Discount Percentage" [(ngModel)]="sdperc" [ngClass]="{ 'is-invalid': submitted && f.sdperc.errors }" formControlName="sdperc">
+
+                    <div *ngIf="submitted && f.sdperc.errors" class="invalid-feedback">
+                        <div *ngIf="f.sdperc.errors.required">Shop discount percentage is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Pick-Up Charge</label>
+                    <input type="number" class="form-control" placeholder="Enter Your Pick-Up Charge" [(ngModel)]="pucharge" [ngClass]="{ 'is-invalid': submitted && f.pucharge.errors }" formControlName="pucharge">
+
+                    <div *ngIf="submitted && f.pucharge.errors" class="invalid-feedback">
+                        <div *ngIf="f.pucharge.errors.required">Pick-up charge is required</div>
+
+                    </div>
+                </div>
+
+                <!-- <div class="col-sm-4">
+                    <label for="">Delivery Charge</label>
+                    <input type="number" class="form-control" placeholder="Enter Your Delivery Charge" [(ngModel)]="dcharge" [ngClass]="{ 'is-invalid': submitted && f.dcharge.errors }" formControlName="dcharge">
+
+                    <div *ngIf="submitted && f.dcharge.errors" class="invalid-feedback">
+                        <div *ngIf="f.dcharge.errors.required">Delivery charge is required</div>
+
+                    </div>
+                </div> -->
+
+                <div class="col-sm-4">
+                    <label for="">Delivery Time</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Delivery Time" [(ngModel)]="dtime" [ngClass]="{ 'is-invalid': submitted && f.dtime.errors }" formControlName="dtime">
+
+                    <div *ngIf="submitted && f.dtime.errors" class="invalid-feedback">
+                        <div *ngIf="f.dtime.errors.required">Delivery time is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Shop Image</label>
+                    <input class="form-control" #file type="file" (change)="addshopimage($event)" [ngClass]="{ 'is-invalid': submitted && f.simage.errors }" formControlName="simage">
+
+                    <div *ngIf="submitted && f.simage.errors" class="invalid-feedback">
+                        <div *ngIf="f.simage.errors.required">Shop image is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Show / Hide</label>
+                    <br> show
+                    <input type="radio" [(ngModel)]="showorhide" value="Show" formControlName="showorhide"> Hide
+                    <input type="radio" [(ngModel)]="showorhide" value="Hide" formControlName="showorhide">
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Status</label>
+                    <br> Active
+                    <input type="radio" [(ngModel)]="status" value="Active" formControlName="status"> Inactive
+                    <input type="radio" [(ngModel)]="status" value="Inactive" formControlName="status">
+                </div>
+                <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Do you want to update the shop Location?</label>
+                    <br> yes
+                    <input type="radio" [(ngModel)]="condtionyesorno" value="yes" [ngModelOptions]="{standalone: true}"> No
+                    <input type="radio" [(ngModel)]="condtionyesorno" value="no" [ngModelOptions]="{standalone: true}">
+
+                </div>
+
+                <!-- <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Selected Locations</label>
+                    <p *ngFor="let sessiondayssRepat of sessiondayssRepat">{{sessiondayssRepat.location}}</p>
+                </div> -->
+                <div class="col-sm-4" *ngFor="let catloations of shoplocations">
+                    <div class="card" style="background: #666;
+                    color: white;    width: auto;
+                    text-align: center;
+                    padding: 6px;" *ngIf="condtionyesorno == 'no'">
+                        <p style="    margin-top: 8px;">{{catloations.location}}</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-12" *ngIf="condtionyesorno == 'yes'">
+                    <label for=""> Choose Locations</label>
+                    <div class="row" style="padding: 15px;">
+                        <div class="radio-toolbar" *ngFor="let repeatsessiondays of repeatsessiondays">
+                            <input formControlName="check" (change)="onChange(repeatsessiondays._id, $event.target.checked)" type="checkbox" id="{{repeatsessiondays.location}}" name="radioFruit" value="{{repeatsessiondays._id}}">
+                            <label for="{{repeatsessiondays.location}}">{{repeatsessiondays.location}}</label>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

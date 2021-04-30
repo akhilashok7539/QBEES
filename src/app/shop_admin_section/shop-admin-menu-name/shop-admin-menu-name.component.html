@@ -1,0 +1,103 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+    <div class="content">
+
+
+        <div class="row">
+
+            <div class="col-sm-4">
+                <div class="row">
+                    <h4 class="page-title">SHOP MENU</h4>
+                    <button class="btn btn-primary" style="height: 33px;
+                    margin-left: 23px;" routerLink="/addshopadminmenuname"> Add Shop Menu</button>
+                </div>
+            </div>
+            <div class="col-sm-2">
+                <select class="form-control" id="" [(ngModel)]="options" (change)="selectedevent(options)">
+                <option value="" selected>Choose a option</option>
+                <option value="s">Shop Name</option>
+                <option value="m">Menu Name</option>
+                <option value="l">Location</option>
+                
+
+              </select>
+            </div>
+            <div class="col-sm-2">
+                <select class="form-control" id="">
+                    <option value="" selected>Choose a option</option>
+                   <option value="" *ngFor="let results of results">{{results.shopmenu}}</option>
+    
+                  </select>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" placeholder="search here">
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <mat-table [dataSource]="dataSource" matSort>
+
+                    <!-- ID Column -->
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
+                    </ng-container>
+
+                    <!--Menu Name Column -->
+                    <ng-container matColumnDef="menuname">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Menu Name</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.shopname}}% </mat-cell>
+                    </ng-container>
+
+                    <!-- Quantity Column
+                    <ng-container matColumnDef="quantity">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Quantity</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.quantity}}% </mat-cell>
+                    </ng-container> -->
+
+                    <!-- Purchase Rate Column -->
+                    <ng-container matColumnDef="purchaserate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Purchase Rate</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.shopname}}% </mat-cell>
+                    </ng-container>
+
+                    <!--Sales Rate Column -->
+                    <ng-container matColumnDef="salesrate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Sales Rate </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.salesrate}} </mat-cell>
+                    </ng-container>
+
+                    <!--Discount Percentage Column -->
+                    <ng-container matColumnDef="discountpercentage">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Discount Percentage </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.discountpercentage}} </mat-cell>
+                    </ng-container>
+
+                    <!--Discount Amount Column -->
+                    <ng-container matColumnDef="discountamount">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Discount Amount </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.discountamount}} </mat-cell>
+                    </ng-container>
+
+
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> <i class="fa fa-edit"></i> </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

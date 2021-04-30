@@ -1,0 +1,113 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Edit Category</h4>
+
+            </div>
+        </div>
+
+        <form [formGroup]="categoryFormRegistration">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <label for="">Category Name</label>
+                    <input type="text" class="form-control" [disabled]="false" placeholder="Enter Your Category Name" [(ngModel)]="cname" [ngClass]="{ 'is-invalid': submitted && f.cname.errors }" formControlName="cname">
+
+                    <div *ngIf="submitted && f.cname.errors" class="invalid-feedback">
+                        <div *ngIf="f.cname.errors.required">Category name is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="">Menu Type </label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="mtype" [ngClass]="{ 'is-invalid': submitted && f.mtype.errors }" formControlName="mtype">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option value="1">RESTAURANT TYPE</option>
+                        <option value="2">GENERAL TYPE</option>
+                    </select>
+                    <div *ngIf="submitted && f.mtype.errors" class="invalid-feedback">
+                        <div *ngIf="f.mtype.errors.required">Menu type is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for="">Category Image</label>
+                    <input class="form-control" placeholder="Enter Your Category Image" #file type="file" (change)="addcategoryimage($event)" [ngClass]="{ 'is-invalid': submitted && f.cimage.errors }" formControlName="cimage">
+
+                    <div *ngIf="submitted && f.cimage.errors" class="invalid-feedback">
+                        <div *ngIf="f.cimage.errors.required">Category image is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-6" style="margin-top: 20px;">
+                    <label for="">Show / Hide</label>
+                    <br> show
+                    <input type="radio" [(ngModel)]="showorhide" value="Show" formControlName="showorhide"> Hide
+                    <input type="radio" [(ngModel)]="showorhide" value="Hide" formControlName="showorhide">
+                </div>
+
+                <div class="col-sm-6" style="margin-top: 20px;">
+                    <label for="">Status</label>
+                    <br> Active
+                    <input type="radio" [(ngModel)]="status" value="Active" formControlName="status"> Inactive
+                    <input type="radio" [(ngModel)]="status" value="Inactive" formControlName="status">
+                </div>
+
+                <div class="col-sm-6" style="margin-top: 20px;">
+                    <label for="">Do you want to update the shop Location?</label>
+                    <br> yes
+                    <input type="radio" [(ngModel)]="condtionyesorno" value="yes" [ngModelOptions]="{standalone: true}"> No
+                    <input type="radio" [(ngModel)]="condtionyesorno" value="no" [ngModelOptions]="{standalone: true}">
+                </div>
+
+                <div class="col-sm-4" *ngFor="let catloations of catloations">
+                    <div class="card" style="background: #666;
+                    color: white;    width: auto;
+                    text-align: center;
+                    padding: 6px;" *ngIf="condtionyesorno == 'no'">
+                        <p style="    margin-top: 8px;">{{catloations.location}}</p>
+                    </div>
+                </div>
+
+                <div class="col-sm-12" *ngIf="condtionyesorno == 'yes'">
+                    <label for=""> Choose Locations</label>
+                    <div class="row" style="padding: 15px;">
+                        <div class="radio-toolbar" *ngFor="let repeatsessiondays of repeatsessiondays">
+                            <input formControlName="check" (change)="onChange(repeatsessiondays._id, $event.target.checked)" type="checkbox" id="{{repeatsessiondays.location}}" name="radioFruit" value="{{repeatsessiondays._id}}">
+                            <label for="{{repeatsessiondays.location}}">{{repeatsessiondays.location}}</label>
+
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+                </div>
+
+            </div>
+            <div class="row">
+
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,124 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="row">
+                    <h4 class="page-title">SHOP</h4>
+                    <button class="btn btn-danger" style="height: 33px;
+                    margin-left: 23px;" routerLink="/addshop"> Add shop</button>
+
+                </div>
+
+
+            </div>
+            <!-- <div class="col-sm-4">
+                <button class="btn btn-primary" style="float: right;" routerLink="/addshop"> Add shop</button>
+
+            </div> -->
+            <!-- <div class="col-sm-2">
+                <select class="form-control" id="" style="float: right;">
+                <option value="" selected>Choose a option</option>
+              </select>
+            </div>
+            <div class="col-sm-2">
+                <select class="form-control" id="">
+                <option value="" selected>Choose a option</option>
+              </select>
+            </div> -->
+
+            <div class="col-sm-2">
+                <select class="form-control" id="" [(ngModel)]="options" (change)="selectedevent(options)">
+                    <option value="" selected>Choose a option</option>
+                    <option value="s">Shop</option>
+                    <option value="l">Location</option>
+                    <option value="c">Category</option>
+
+                </select>
+            </div>
+            <div class="col-sm-2">
+                <select class="form-control" id="">
+                    <option value="" selected>Choose a option</option>
+                    <option value="" *ngFor="let results of results">{{results.shopname}}</option>
+
+                </select>
+            </div>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" placeholder="search here" (keyup)="applyFilter($event.target.value)">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <mat-table [dataSource]="dataSource" matSort>
+
+                    <!--Image Column -->
+                    <ng-container matColumnDef="image">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Image </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <img src="{{apiUrl}}shop/get/image/{{row.shop_img}}" alt="" style="width: 100px;">
+                        </mat-cell>
+                    </ng-container>
+
+                    <!-- Shop Name Column -->
+                    <ng-container matColumnDef="shopname">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Shop Name</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.shop_name}} </mat-cell>
+                    </ng-container>
+
+                    <!-- Category Name Column -->
+                    <!-- <ng-container matColumnDef="categoryname">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Category Name</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.category_id.category_name}}</mat-cell>
+                    </ng-container> -->
+
+                    <!-- Phone Number Column -->
+                    <ng-container matColumnDef="phonenumber">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Phone Number </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.shop_phone}} </mat-cell>
+                    </ng-container>
+
+
+                    <!-- Service Location Column
+                    <ng-container matColumnDef="servicelocation">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Service Location </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.locationId.location}} </mat-cell>
+                    </ng-container> -->
+
+                    <!--Status Column -->
+                    <ng-container matColumnDef="status">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Status </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <p style="font-weight: bold; color: green;" *ngIf="row.shop_state == 'Active'">{{row.shop_state}} </p>
+                            <p style="font-weight: bold; color: red;" *ngIf="row.shop_state == 'Inactive'">{{row.shop_state}} </p>
+                        </mat-cell>
+                    </ng-container>
+
+
+                    <!-- Action Column -->
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <button class="btn btn-success" (click)="edit(row)"><i class="fa fa-edit" style="color: white;"></i></button> &nbsp;
+                            <!-- <button class="btn btn-dark"><i class="fa fa-trash" style="color: white;"></i></button>&nbsp; -->
+                            <button class="btn btn-warning" (click)="active(row)" *ngIf="row.shop_state == 'Inactive'">Active </button>&nbsp;
+                            <button class="btn btn-danger" (click)="inactive(row)" *ngIf="row.shop_state == 'Active'">In-Active </button>
+
+                        </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

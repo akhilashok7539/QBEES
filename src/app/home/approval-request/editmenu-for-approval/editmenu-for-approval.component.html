@@ -1,0 +1,95 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Add Restaurant Menu</h4>
+
+            </div>
+        </div>
+
+        <form [formGroup]="restaurantmenuFormRegistration">
+
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <label for=""> Menu Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Menu Name" [(ngModel)]="mname" [ngClass]="{ 'is-invalid': submitted && f.mname.errors }" formControlName="mname">
+
+                    <div *ngIf="submitted && f.mname.errors" class="invalid-feedback">
+                        <div *ngIf="f.mname.errors.required">Menu name is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Menu Description </label>
+                    <input type="text" class="form-control" placeholder="Enter the Menu Description" [(ngModel)]="mdes" [ngClass]="{ 'is-invalid': submitted && f.mdes.errors }" formControlName="mdes">
+
+                    <div *ngIf="submitted && f.mdes.errors" class="invalid-feedback">
+                        <div *ngIf="f.mdes.errors.required">Menu description is required</div>
+                        <div *ngIf="f.mdes.errors.maxlength">Maximum 50 characters are allowed</div>
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Menu Type </label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="mtype" [ngClass]="{ 'is-invalid': submitted && f.mtype.errors }" formControlName="mtype">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option value="Veg">VEG</option>
+                        <option value="Non Veg">NON-VEG</option>
+                    </select>
+                    <div *ngIf="submitted && f.mtype.errors" class="invalid-feedback">
+                        <div *ngIf="f.mtype.errors.required">Menu type is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Category Type </label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="ctype" [ngClass]="{ 'is-invalid': submitted && f.ctype.errors }" formControlName="ctype">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option value="{{result._id}}" *ngFor="let result of result">{{result.cource_name}}</option>
+                       
+                    </select>
+                    <div *ngIf="submitted && f.ctype.errors" class="invalid-feedback">
+                        <div *ngIf="f.ctype.errors.required">Category type is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Menu Images </label>
+
+                    <input class="form-control" #file type="file" (change)="addmenuimage($event)" [ngClass]="{ 'is-invalid': submitted && f.mimages.errors }" formControlName="mimages">
+                    <div *ngIf="submitted && f.mimages.errors" class="invalid-feedback">
+                        <div *ngIf="f.mimages.errors.required">Menu images is required</div>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+                </div>
+
+            </div>
+
+        </form>
+    </div>
+</div>

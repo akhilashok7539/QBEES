@@ -1,0 +1,56 @@
+<!-- <app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">Edit Chat Box</h4>
+
+            </div>
+        </div>
+        <form [formGroup]="editchatboxFormRegistration">
+
+            <div class="row">
+
+
+                <div class="col-sm-6">
+                    <label for=""> Location</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="location" [ngClass]="{ 'is-invalid': submitted && f.location.errors }" formControlName="location">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option *ngFor="let s of locations" value="{{s._id}}" >{{s.location}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                        <div *ngIf="f.location.errors.required">Location is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for=""> Messages</label>
+                    <input type="text" class="form-control" placeholder="Type the messages here" [(ngModel)]="message" [ngClass]="{ 'is-invalid': submitted && f.message.errors }" formControlName="message">
+
+                    <div *ngIf="submitted && f.message.errors" class="invalid-feedback">
+                        <div *ngIf="f.message.errors.required">Messages is required</div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col-sm-12 ">
+                    <button class="btn btn-warning " (click)="submit() ">SUBMIT</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div> -->

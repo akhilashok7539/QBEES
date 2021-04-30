@@ -1,0 +1,72 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Add Pharmacy  Category Type</h4>
+
+            </div>
+        </div>
+
+        <form [formGroup]="addpharmacycategorytypeFormRegistration">
+
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <label for=""> Medicine Type</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="mtype" [ngClass]="{ 'is-invalid': submitted && f.mtype.errors }" formControlName="mtype">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option value="1" >English Medicine </option>
+                        <option value="2" >Ayurvedic Medicine </option>
+                     
+
+                        
+                        
+                    </select>
+                    <div *ngIf="submitted && f.mtype.errors" class="invalid-feedback">
+                        <div *ngIf="f.mtype.errors.required">Medicine Type is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">English Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your English Name" [(ngModel)]="ename" [ngClass]="{ 'is-invalid': submitted && f.ename.errors }" formControlName="ename">
+
+                    <div *ngIf="submitted && f.ename.errors" class="invalid-feedback">
+                        <div *ngIf="f.ename.errors.required">English name is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Malayalam Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Malayalam Name" [(ngModel)]="mname" [ngClass]="{ 'is-invalid': submitted && f.mname.errors }" formControlName="mname">
+
+                    <div *ngIf="submitted && f.mname.errors" class="invalid-feedback">
+                        <div *ngIf="f.mname.errors.required">Malayalam name is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</div>

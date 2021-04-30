@@ -1,0 +1,373 @@
+.btn-warning {
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 30%;
+    padding: 15px;
+    border-radius: 20px;
+    background-image: linear-gradient(50deg, #ff5200, #fbff00);
+}
+
+.btn-warning {
+    margin-top: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 30%;
+    padding: 15px;
+    border-radius: 20px;
+    background-image: linear-gradient(50deg, #ff5200, #fbff00);
+}
+
+.col-sm-4 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.radio-toolbar {
+    margin: 10px;
+}
+
+.radio-toolbar input[type="radio"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.card {
+    width: 480px;
+    margin-bottom: 30px;
+    box-shadow: 0px 2px 6px #00000033;
+    border: 0;
+}
+
+h6 {
+    padding: 15px;
+    /* font: Light 19px/26px Open Sans; */
+    font-family: sans-serif;
+    font-size: 13px;
+    letter-spacing: 0px;
+    color: #6F707B;
+    opacity: 1;
+}
+
+h5 {
+    padding-left: 16px;
+}
+
+.radio-toolbar label {
+    border-radius: 10px;
+    display: inline-block;
+    background-color: #ddd;
+    padding: 10px 20px;
+    font-family: sans-serif, Arial;
+    font-size: 16px;
+    border: 2px solid rgb(236, 236, 236);
+    border-radius: 4px;
+}
+
+.radio-toolbar label:hover {
+    background-color: #dfd;
+}
+
+.radio-toolbar input[type="radio"]:focus+label {
+    border: 2px dashed #444;
+}
+
+.radio-toolbar input[type="radio"]:checked+label {
+    background-color: #bfb;
+    border-color: #4c4;
+}
+
+.project-tab {
+    padding: 2%;
+    margin-top: 0%;
+}
+
+.container {
+    max-width: 1443px;
+}
+
+input[type="radio"] {
+    margin-left: 10px;
+}
+
+
+/* .page-wrapper {
+    background: #F3F5F7;
+    left: 0;
+    margin-left: 0px;
+    padding-top: 50px;
+    position: relative;
+    transition: all 0.4s ease;
+} */
+
+.radioButtons {
+    display: inline;
+    position: relative;
+    padding-left: 35px;
+    /* margin-bottom: 12px; */
+    cursor: pointer;
+    font-size: 16px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
+/* Hide the browser's default radio button */
+
+.radioButtons input {
+    position: relative;
+    opacity: 0;
+    cursor: pointer;
+}
+
+
+/* Create a custom radio button */
+
+.checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: #eee;
+    border-radius: 50%;
+}
+
+
+/* On mouse-over, add a grey background color */
+
+.radioButtons:hover input~.checkmark {
+    background-color: #ccc;
+}
+
+
+/* When the radio button is checked, add a blue background */
+
+.radioButtons input:checked~.checkmark {
+    background-color: white;
+    border: 2px solid #2196F3;
+}
+
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+
+
+/* Show the indicator (dot/circle) when checked */
+
+.radioButtons input:checked~.checkmark:after {
+    display: block;
+}
+
+
+/* Style the indicator (dot/circle) */
+
+.radioButtons .checkmark:after {
+    top: 3px;
+    left: 3.05px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #2196F3;
+}
+
+.project-tab #tabs {
+    background: #007b5e;
+    color: #eee;
+}
+
+.project-tab #tabs h6.section-title {
+    color: #eee;
+}
+
+.project-tab #tabs .nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active {
+    color: #0062cc;
+    background-color: transparent;
+    border-color: transparent transparent #f3f3f3;
+    border-bottom: 3px solid !important;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.project-tab .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    color: #0f0f0f;
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.project-tab .nav-link:hover {
+    border: none;
+}
+
+.project-tab thead {
+    background: #f3f3f3;
+    color: #333;
+}
+
+.project-tab a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+
+/* .page-wrapper {
+    left: 0;
+    margin-left: 0px;
+    padding-top: 50px;
+    position: relative;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    transition: all 0.4s ease;
+} */
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+
+/* Firefox */
+
+input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.uploader {
+    width: 300px;
+    height: 350px;
+    background: #f3f3f3;
+    margin-left: auto;
+    margin-right: auto;
+    border: 2px dashed #e8e8e8;
+}
+
+.image-container {
+    position: relative;
+    display: inline-block;
+    text-align: center;
+}
+
+img {
+    height: 200px;
+    width: 200px;
+    /* border: 5px solid #000; */
+}
+
+.submits-btn {
+    /* border-radius: 50px; */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 303px;
+    padding: 8px 20px;
+    text-transform: uppercase;
+}
+
+.select-profile-picture {
+    padding: 83px 21px 28px 46px;
+    /* position: absolute; */
+    top: 0;
+    left: 0;
+    z-index: 999;
+    opacity: 1;
+    width: 111%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.message {
+    position: absolute;
+    width: 90%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, 100%);
+    transition: all 1s;
+    opacity: 0;
+}
+
+.image-container:hover .message {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+
+select {
+    height: 40px;
+    padding: 0px 15px;
+    border: 1px solid #E4E7ED;
+    background-color: #FFF;
+    width: 100%;
+}
+
+.radio-toolbar {
+    margin: 10px;
+}
+
+.radio-toolbar input[type="checkbox"] {
+    opacity: 0;
+    position: fixed;
+    width: 0;
+}
+
+.submits-btn {
+    /* border-radius: 50px; */
+    color: #fff;
+    font-size: 16px;
+    font-weight: 500;
+    min-width: 303px;
+    padding: 8px 20px;
+    text-transform: uppercase;
+}
+
+.radio-toolbar label {
+    font-weight: 600;
+    border: 1px solid;
+    margin-left: 12px;
+    display: inline-block;
+    background-color: #ddd0;
+    padding: 9px 23px;
+    font-family: 'Poppins';
+}
+
+.radio-toolbar label:hover {
+    background-color: white;
+}
+
+.radio-toolbar input[type="checkbox"]:focus+label {
+    border: 2px dashed #444;
+}
+
+
+/* .radio-toolbar input[type="radio"]:checked + label {
+      background-color: #bfb;
+      border-color: #4c4;
+  } */
+
+.radio-toolbar input[type="checkbox"]:checked+label {
+    background-color: #666;
+    border-color: #666;
+    color: white;
+}
+
+.row {
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: 0px;
+    margin-left: -15px;
+}

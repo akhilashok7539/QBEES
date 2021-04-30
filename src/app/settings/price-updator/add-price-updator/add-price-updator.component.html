@@ -1,0 +1,77 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">Add Price Updater</h4>
+
+            </div>
+        </div>
+        <form [formGroup]="addpriceupdatorFormRegistration">
+
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <label for="">Shop Name </label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="sname" [ngClass]="{ 'is-invalid': submitted && f.sname.errors }" formControlName="sname">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option *ngFor="let results of results" value="{{results._id}}">{{results.shop_name}}</option>
+                      
+                    </select>
+                    <div *ngIf="submitted && f.sname.errors" class="invalid-feedback">
+                        <div *ngIf="f.sname.errors.required">Shop name is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Select Price </label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="sprice" [ngClass]="{ 'is-invalid': submitted && f.sprice.errors }" formControlName="sprice">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option value="1">Purchase Rate</option>
+                        <option value="2">Sales Rate</option>
+                        <option value="3">Discount Amount</option>
+                        <option value="4">Discount Percentage</option>
+
+                    </select>
+                    <div *ngIf="submitted && f.sprice.errors" class="invalid-feedback">
+                        <div *ngIf="f.sprice.errors.required">Select Price is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label>Amount</label>
+                    <input type="text" class="form-control" [disabled]="false" placeholder="Enter the Amount" [(ngModel)]="amount" formControlName="amount">
+
+                </div>
+                <!-- <div class="col-sm-4">
+                    <label>Percentage</label>
+                    <input type="text" class="form-control" [disabled]="false" placeholder=" Enter the Percentage " [(ngModel)]="percentage " (keyup)="onkeydown1(percentage) " formControlName="percentage">
+
+                </div> -->
+
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+
+                </div>
+
+            </div>
+        </form>
+    </div>
+
+</div>

@@ -1,0 +1,12 @@
+img {
+    margin: 0 auto;
+    display: block;
+}
+
+.card {
+    padding: 10px;
+}
+
+h5 {
+    text-align: center;
+}

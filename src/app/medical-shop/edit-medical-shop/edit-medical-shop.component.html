@@ -1,0 +1,274 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">Edit Pharmacy</h4>
+
+            </div>
+        </div>
+        <form [formGroup]="pharmacyFormRegistration">
+            <div class="row">
+                
+                <div class="col-sm-4">
+                    <label for=""> Medicine Type</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="mtype" [ngClass]="{ 'is-invalid': submitted && f.mtype.errors }" formControlName="mtype">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option value="1" >English Medicine </option>
+                        <option value="2" >Ayurvedic Medicine </option>
+                        <option value="3">All </option>
+
+                        
+                        
+                    </select>
+                    <div *ngIf="submitted && f.mtype.errors" class="invalid-feedback">
+                        <div *ngIf="f.mtype.errors.required">Medicine Type is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Pharmacy Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Pharmacy Name" [(ngModel)]="pname" [ngClass]="{ 'is-invalid': submitted && f.pname.errors }" formControlName="pname">
+
+                    <div *ngIf="submitted && f.pname.errors" class="invalid-feedback">
+                        <div *ngIf="f.pname.errors.required">Pharmacy name is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Pharmacy License Number </label>
+                    <input type="text" class="form-control" placeholder="Enter Your Pharmacy License Number" [(ngModel)]="plic" [ngClass]="{ 'is-invalid': submitted && f.plic.errors }" formControlName="plic">
+
+                    <div *ngIf="submitted && f.plic.errors" class="invalid-feedback">
+                        <div *ngIf="f.plic.errors.required">Pharmacy License Number is required</div>
+
+                    </div>
+                </div>
+
+
+
+                <div class="col-sm-4">
+                    <label for="">Pharmacy Address </label>
+                    <input type="text" class="form-control" placeholder="Enter Your Pharmacy Address" [(ngModel)]="paddress" [ngClass]="{ 'is-invalid': submitted && f.paddress.errors }" formControlName="paddress">
+
+                    <div *ngIf="submitted && f.paddress.errors" class="invalid-feedback">
+                        <div *ngIf="f.paddress.errors.required">Pharmacy address is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Pharmacy Landline Number </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Pharmacy  Landline Number" [(ngModel)]="pln" [ngClass]="{ 'is-invalid': submitted && f.pln.errors }" formControlName="pln">
+
+                    <div *ngIf="submitted && f.pln.errors" class="invalid-feedback">
+                        <div *ngIf="f.pln.errors.required">Pharmacy landline number is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Pharmacy Phone Number </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Pharmacy Phone Number" [(ngModel)]="pphn" [ngClass]="{ 'is-invalid': submitted && f.pphn.errors }" formControlName="pphn">
+
+                    <div *ngIf="submitted && f.pphn.errors" class="invalid-feedback">
+                        <div *ngIf="f.pphn.errors.required">Pharmacy phone number is required</div>
+                        <div *ngIf="f.pphn.errors.pattern">Pharmacy number must be valid number</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Pharmacy Opening Time </label>
+                    <input type="time" class="form-control" placeholder="Enter Your Pharmacy Opening Time" [(ngModel)]="potime" [ngClass]="{ 'is-invalid': submitted && f.potime.errors }" formControlName="potime">
+
+                    <div *ngIf="submitted && f.potime.errors" class="invalid-feedback">
+                        <div *ngIf="f.potime.errors.required">Pharmacy opening time is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Pharmacy Closing Time </label>
+                    <input type="time" class="form-control" placeholder="Enter Your Pharmacy Closing Time" [(ngModel)]="pctime" [ngClass]="{ 'is-invalid': submitted && f.pctime.errors }" formControlName="pctime">
+
+                    <div *ngIf="submitted && f.pctime.errors" class="invalid-feedback">
+                        <div *ngIf="f.pctime.errors.required">Pharmacy closing time is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Owner Name </label>
+                    <input type="text" class="form-control" placeholder="Enter Your Owner Name" [(ngModel)]="oname" [ngClass]="{ 'is-invalid': submitted && f.oname.errors }" formControlName="oname">
+
+                    <div *ngIf="submitted && f.oname.errors" class="invalid-feedback">
+                        <div *ngIf="f.oname.errors.required">Owner Name is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Owner Mobile Number </label>
+                    <input type="number" class="form-control" placeholder="Enter Your Owner Mobile Number" [(ngModel)]="omob" [ngClass]="{ 'is-invalid': submitted && f.omob.errors }" formControlName="omob">
+
+                    <div *ngIf="submitted && f.omob.errors" class="invalid-feedback">
+                        <div *ngIf="f.omob.errors.required">Owner Mobile Number is required</div>
+
+                    </div>
+                </div>
+
+            
+                <div class="col-sm-4">
+                    <label for="">Contact Person Name </label>
+                    <input type="text" class="form-control" placeholder="Enter Your Contact Person Name" [(ngModel)]="cpname" [ngClass]="{ 'is-invalid': submitted && f.cpname.errors }" formControlName="cpname">
+
+                    <div *ngIf="submitted && f.cpname.errors" class="invalid-feedback">
+                        <div *ngIf="f.cpname.errors.required">Contact Person Name is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Contact Person Phone Number</label>
+                    <input type="number" class="form-control" placeholder="Enter Your Contact Person Phone Number" [(ngModel)]="cpphn" [ngClass]="{ 'is-invalid': submitted && f.cpphn.errors }" formControlName="cpphn">
+
+                    <div *ngIf="submitted && f.cpphn.errors" class="invalid-feedback">
+                        <div *ngIf="f.cpphn.errors.required">Contact Person Phone Number is required</div>
+
+                    </div>
+                </div>
+
+                <!-- <div class="col-sm-4">
+                    <label for="">Delivery Charge</label>
+                    <input type="number" class="form-control" placeholder="Enter Your Delivery Charge" [(ngModel)]="dcharge" [ngClass]="{ 'is-invalid': submitted && f.dcharge.errors }" formControlName="dcharge">
+
+                    <div *ngIf="submitted && f.dcharge.errors" class="invalid-feedback">
+                        <div *ngIf="f.dcharge.errors.required">Delivery charge is required</div>
+
+                    </div>
+                </div> -->
+
+                <div class="col-sm-4">
+                    <label for="">Purchase Percentage</label>
+                    <input type="number" class="form-control" placeholder="Enter Your Purchase Percentage" [(ngModel)]="ppercent" [ngClass]="{ 'is-invalid': submitted && f.ppercent.errors }" formControlName="ppercent">
+
+                    <div *ngIf="submitted && f.ppercent.errors" class="invalid-feedback">
+                        <div *ngIf="f.ppercent.errors.required">Purchase Percentage is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for=""> Discount Percentage</label>
+                    <input type="number" class="form-control" placeholder="Enter the  Discount Percentage" [(ngModel)]="dpercent" [ngClass]="{ 'is-invalid': submitted && f.dpercent.errors }" formControlName="dpercent">
+
+                    <div *ngIf="submitted && f.dpercent.errors" class="invalid-feedback">
+                        <div *ngIf="f.dpercent.errors.required"> Discount percentage is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Pharmacy Image</label>
+                    <input class="form-control" #file type="file" (change)="addshopimage($event)" [ngClass]="{ 'is-invalid': submitted && f.pimage.errors }" formControlName="pimage">
+
+                    <div *ngIf="submitted && f.pimage.errors" class="invalid-feedback">
+                        <div *ngIf="f.pimage.errors.required">Pharmacy image is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Username</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Username " [(ngModel)]="username" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" formControlName="username">
+
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username  is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Password</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Password " [(ngModel)]="password" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" formControlName="password">
+
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password  is required</div>
+
+                    </div>
+                </div>
+
+
+
+                
+
+                <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Show / Hide</label>
+                    <br> show
+                    <input type="radio" [(ngModel)]="showorhide" value="Show" formControlName="showorhide"> Hide
+                    <input type="radio" [(ngModel)]="showorhide" value="Hide" formControlName="showorhide">
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Status</label>
+                    <br> Active
+                    <input type="radio" [(ngModel)]="status" value="Active" formControlName="status"> Inactive
+                    <input type="radio" [(ngModel)]="status" value="Inactive" formControlName="status">
+                </div>
+                <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Do you want to update the shop Location?</label>
+                    <br> yes
+                    <input type="radio" [(ngModel)]="condtionyesorno" value="yes" [ngModelOptions]="{standalone: true}"> No
+                    <input type="radio" [(ngModel)]="condtionyesorno" value="no" [ngModelOptions]="{standalone: true}">
+
+                </div>
+                <div class="col-sm-4" *ngFor="let catloations of shoplocations">
+                    <div class="card" style="background: #666;
+                    color: white;    width: auto;
+                    text-align: center;
+                    padding: 6px;" *ngIf="condtionyesorno == 'no'">
+                        <p style="    margin-top: 8px;">{{catloations.location}}</p>
+                    </div>
+                </div>
+
+
+                <div class="col-sm-12" *ngIf="condtionyesorno == 'yes'">
+                    <label for=""> Choose Locations</label>
+                    <div class="row" style="padding: 15px;">
+                        <div class="radio-toolbar" *ngFor="let repeatsessiondays of repeatsessiondays">
+                            <input formControlName="check" (change)="onChange(repeatsessiondays._id, $event.target.checked)" type="checkbox" id="{{repeatsessiondays.location}}" name="radioFruit" value="{{repeatsessiondays._id}}">
+                            <label for="{{repeatsessiondays.location}}">{{repeatsessiondays.location}}</label>
+
+                        </div>
+                    </div>
+
+                </div>
+
+
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">Add Sub Location</h4>
+
+            </div>
+        </div>
+        <form [formGroup]="locationFormRegistration">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <label for="">Location</label>
+                    <select name="" id="" class="form-control" [(ngModel)]="location" [ngClass]="{ 'is-invalid': submitted && f.location.errors }" formControlName="location">
+                        <option value="">Choose a location</option>
+                        <option *ngFor="let result of result" value="{{result._id}}">{{result.location}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                        <div *ngIf="f.location.errors.required"> Location is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-6">
+                    <label for="">Sub Location</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Sub location" [(ngModel)]="slocation" [ngClass]="{ 'is-invalid': submitted && f.slocation.errors }" formControlName="slocation">
+
+                    <div *ngIf="submitted && f.slocation.errors" class="invalid-feedback">
+                        <div *ngIf="f.slocation.errors.required">Sub Location is required</div>
+
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <label for="">Delivery Charge</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Delivery Charge" [(ngModel)]="dcharge" [ngClass]="{ 'is-invalid': submitted && f.dcharge.errors }" formControlName="dcharge">
+
+                    <div *ngIf="submitted && f.dcharge.errors" class="invalid-feedback">
+                        <div *ngIf="f.dcharge.errors.required">Delivery Charge is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                            [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                        {{button}}</button>
+
+                </div>
+
+            </div>
+        </form>
+
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Master Admin Phone number</h4>
+
+            </div>
+        </div>
+        <form [formGroup]="masteradminphonenumberFormRegistration">
+
+            <div class="row">
+
+                <div class="col-sm-6">
+                    <label for="">Admin Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Admin Name" [(ngModel)]="aname" [ngClass]="{ 'is-invalid': submitted && f.aname.errors }" formControlName="aname">
+
+                    <div *ngIf="submitted && f.aname.errors" class="invalid-feedback">
+                        <div *ngIf="f.aname.errors.required">Admin name is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-6">
+                    <label for=""> Admin Phone Number</label>
+                    <input type="number" class="form-control" placeholder="Enter Your Admin Phone Number" [(ngModel)]="aphn" [ngClass]="{ 'is-invalid': submitted && f.aphn.errors }" formControlName="aphn">
+
+                    <div *ngIf="submitted && f.aphn.errors" class="invalid-feedback">
+                        <div *ngIf="f.aphn.errors.required">Admin phone number is required</div>
+                        <div *ngIf="f.aphn.errors.pattern">Phone number must be valid number</div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+
+                </div>
+            </div>
+        </form>
+    </div>

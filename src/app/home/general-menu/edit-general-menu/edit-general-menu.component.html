@@ -1,0 +1,107 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Add General Menu</h4>
+
+            </div>
+        </div>
+        <form [formGroup]="generalmenuFormRegistration">
+            <div class="row">
+
+                <!-- <div class="col-sm-4">
+                    <label for=""> Shop Name</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="sname" [ngClass]="{ 'is-invalid': submitted && f.sname.errors }" formControlName="sname">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option *ngFor="let s of shops" value="{{s._id}}">{{s.shop_name}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.sname.errors" class="invalid-feedback">
+                        <div *ngIf="f.sname.errors.required">Shop name is required</div>
+
+                    </div>
+                </div> -->
+
+
+                <div class="col-sm-4">
+                    <label for=""> Category Name</label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="cname" [ngClass]="{ 'is-invalid': submitted && f.cname.errors }" formControlName="cname">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option *ngFor="let c of category" value="{{c._id}}">{{c.category_name}}</option>
+                    </select>
+                    <div *ngIf="submitted && f.cname.errors" class="invalid-feedback">
+                        <div *ngIf="f.cname.errors.required">Category name is required</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Item Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Item Name" [(ngModel)]="iname" [ngClass]="{ 'is-invalid': submitted && f.iname.errors }" formControlName="iname">
+
+                    <div *ngIf="submitted && f.iname.errors" class="invalid-feedback">
+                        <div *ngIf="f.iname.errors.required">Item name is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label for="">Item Description</label>
+                    <input type="text" class="form-control" placeholder="Enter the Item Description" [(ngModel)]="des" [ngClass]="{ 'is-invalid': submitted && f.des.errors }" formControlName="des">
+
+                    <div *ngIf="submitted && f.des.errors" class="invalid-feedback">
+                        <div *ngIf="f.des.errors.required">Description is required</div>
+                        <div *ngIf="f.des.errors.maxlength">Maximum 50 characters are allowed</div>
+
+                    </div>
+                </div>
+
+                <div class="col-sm-4">
+                    <label for="">Item Image</label>
+
+
+                    <input class="form-control" placeholder="Enter Your Category Image" #file type="file" (change)="additemimage($event)" [ngClass]="{ 'is-invalid': submitted && f.iimage.errors }" formControlName="iimage">
+
+                    <div *ngIf="submitted && f.iimage.errors" class="invalid-feedback">
+                        <div *ngIf="f.iimage.errors.required">Item is required</div>
+
+                    </div>
+                </div>
+
+                <!-- <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Show / Hide</label>
+                    <br> show
+                    <input type="radio" [(ngModel)]="showorhide" value="Show" formControlName="showorhide"> Hide
+                    <input type="radio" [(ngModel)]="showorhide" value="Hide" formControlName="showorhide">
+                </div>
+
+                <div class="col-sm-4" style="margin-top: 20px;">
+                    <label for="">Status</label>
+                    <br> Active
+                    <input type="radio" [(ngModel)]="status" value="Active" formControlName="status"> Inactive
+                    <input type="radio" [(ngModel)]="status" value="Inactive" formControlName="status">
+                </div> -->
+
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+                </div>
+
+            </div>
+        </form>
+    </div>
+</div>

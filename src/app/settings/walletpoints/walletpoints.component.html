@@ -1,0 +1,70 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title"> Wallet Points</h4>
+
+            </div>
+        </div>
+
+        <form [formGroup]="walletpointsFormRegistration">
+
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <label for="">Reward Points</label>
+                    <input type="number" class="form-control" placeholder="Enter Your Reward Points" [(ngModel)]="rpoints" [ngClass]="{ 'is-invalid': submitted && f.rpoints.errors }" formControlName="rpoints">
+
+                    <div *ngIf="submitted && f.rpoints.errors" class="invalid-feedback">
+                        <div *ngIf="f.rpoints.errors.required">Reward points is required</div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <label for=""> Amount Value</label>
+                    <input type="number" class="form-control" placeholder="Enter Your  Amount Value" [(ngModel)]="avalue" [ngClass]="{ 'is-invalid': submitted && f.avalue.errors }" formControlName="avalue">
+
+                    <div *ngIf="submitted && f.avalue.errors" class="invalid-feedback">
+                        <div *ngIf="f.avalue.errors.required">Amount value is required</div>
+
+                    </div>
+
+                </div>
+
+                <div class="col-sm-4">
+                    <label for=""> Redeem Amount</label>
+                    <input type="number" class="form-control" placeholder="Enter Your  Minimum Redeem Amount" [(ngModel)]="ramount" [ngClass]="{ 'is-invalid': submitted && f.ramount.errors }" formControlName="ramount">
+
+                    <div *ngIf="submitted && f.ramount.errors" class="invalid-feedback">
+                        <div *ngIf="f.ramount.errors.required">Redeem amount is required</div>
+
+                    </div>
+
+                </div>
+
+
+
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                        [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                    {{button}}</button>
+
+                </div>
+            </div>
+        </form>
+
+    </div>
+</div>

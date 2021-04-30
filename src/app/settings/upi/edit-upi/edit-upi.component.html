@@ -1,0 +1,59 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+
+
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">Edit UPI Credentials</h4>
+
+            </div>
+        </div>
+        <form [formGroup]="editupicredentialsFormRegistration">
+
+            <div class="row">
+
+                <div class="col-sm-4">
+                    <label for="">Location </label>
+
+                    <select name="" id="" class="form-control" [(ngModel)]="location" formControlName="location"  [ngClass]="{ 'is-invalid': submitted && f.location.errors }">
+                        <option value="" disabled selected>Choose a option </option>
+                        <option  *ngFor="let l of results" value="{{l._id}}">{{l.location}}</option>
+                        
+                    </select>
+                    <div *ngIf="submitted && f.location.errors" class="invalid-feedback">
+                        <div *ngIf="f.location.errors.required">Location is required</div>
+
+                    </div>
+                </div>
+
+
+                <div class="col-sm-4">
+                    <label>UPI Number</label>
+                    <input type="text" class="form-control" [disabled]="false" placeholder="Enter the UPI Number" [(ngModel)]="upi" formControlName="upi"  [ngClass]="{ 'is-invalid': submitted && f.upi.errors }">
+                    <div *ngIf="submitted && f.upi.errors" class="invalid-feedback">
+                        <div *ngIf="f.upi.errors.required">Password is required</div>
+
+                    </div>
+                </div>
+
+
+
+
+                <div class="col-sm-12">
+                    <!-- <button class="btn btn-warning" (click)="submit()">SUBMIT</button> -->
+                    <button class="btn btn-warning" (click)="submit()" [disabled]="isLoading"><i class="fa"
+                            [ngClass]="{' fa-spinner fa-spin': isLoading, 'fa-check': !isLoading}"></i>
+                        {{button}}</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+</div>

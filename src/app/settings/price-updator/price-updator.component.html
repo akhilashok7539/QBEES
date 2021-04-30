@@ -1,0 +1,69 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">PRICE UPDATER</h4>
+
+            </div>
+
+            <div class="col-sm-4">
+                <button class="btn btn-primary" style="float: right;" routerLink="/addpriceupdator"> Add Price Updater</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <mat-table [dataSource]="dataSource" matSort>
+
+
+
+
+                    <!-- Menu Name Column -->
+                    <ng-container matColumnDef="menuname">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Menu Name</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.menuname}} </mat-cell>
+                    </ng-container>
+
+
+                    <!--Purchase Rate Column -->
+                    <ng-container matColumnDef="purchaserate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Purchase Rate </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.purchaserate}} </mat-cell>
+                    </ng-container>
+
+                    <!--Sales Rate Column -->
+                    <ng-container matColumnDef="salesrate">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Sales Rate </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.salesrate}} </mat-cell>
+                    </ng-container>
+
+
+                    <!--Discount Amount Column -->
+                    <ng-container matColumnDef="discountamount">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Discount Amount </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.discountamount}} </mat-cell>
+                    </ng-container>
+
+
+                    <!-- Discount Percentage Column -->
+                    <ng-container matColumnDef="discountpercentage">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Discount Percentage </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.discountpercentage}} </mat-cell>
+                    </ng-container>
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

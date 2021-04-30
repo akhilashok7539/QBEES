@@ -1,0 +1,64 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">General Category Type</h4>
+
+            </div>
+
+            <div class="col-sm-4">
+                <button *ngIf="status =='masteradmin'" class="btn btn-danger" style="float: right;" routerLink="/addgeneralcategory"> Add General Category Type</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-12">
+
+                <mat-table [dataSource]="dataSource" matSort>
+
+                    <!--Id Column -->
+                    <ng-container matColumnDef="id">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Id </mat-header-cell>
+                        <mat-cell *matCellDef="let row;let i=index;"> C{{i+1}} </mat-cell>
+                    </ng-container>
+
+
+                    <!-- Menu Description Column -->
+                    <ng-container matColumnDef="categorytype">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Category Type</mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.category_name}} </mat-cell>
+                    </ng-container>
+
+
+                    <!--Action Column -->
+                    <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Action </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <button *ngIf="status =='masteradmin'" class="btn btn-success" (click)="edit(row)"><i class="fa fa-edit" style="color: white;"></i></button> &nbsp;
+                            <!-- <button class="btn btn-dark"><i class="fa fa-trash" style="color: white;"></i></button>&nbsp; -->
+
+                            <div *ngIf="status =='masteradmin'">
+                                <button class="btn btn-warning" (click)="active(row)" *ngIf="row.state == 'Inactive'">Active </button>
+                                <button class="btn btn-danger" (click)="inactive(row)" *ngIf="row.state == 'Active'">In-Active </button>
+
+                            </div>
+
+                        </mat-cell>
+                    </ng-container>
+
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>
