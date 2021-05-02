@@ -6,6 +6,7 @@ import { EditCoursetypeComponent } from './coursetype/edit-coursetype/edit-cours
 import { AddGeneralCategoryComponent } from './general-category/add-general-category/add-general-category.component';
 import { EditGeneralCategoryComponent } from './general-category/edit-general-category/edit-general-category.component';
 import { GeneralCategoryComponent } from './general-category/general-category.component';
+import { GetallPrescriptionComponent } from './getall-prescription/getall-prescription.component';
 import { AddmenuForApprovalComponent } from './home/approval-request/addmenu-for-approval/addmenu-for-approval.component';
 import { ApprovalRequestComponent } from './home/approval-request/approval-request.component';
 import { LocationAdminViewPendingrequestComponent } from './home/approval-request/location-admin-view-pendingrequest/location-admin-view-pendingrequest.component';
@@ -185,6 +186,7 @@ const routes: Routes = [
   { path: 'add-pharmacy-menu', component: AddPharmacyMenuComponent },
   { path: 'edit-pharmacy-menu', component: EditPharmacyMenuComponent },
   { path: 'pharmacy-orders', component: PharmacyOrdersComponent },
+  { path: 'get-all-prescription-orders', component: GetallPrescriptionComponent },
 
 
 

@@ -183,7 +183,8 @@ export class AddGeneralShopMenuComponent implements OnInit {
         "mrp": this.imrp,
         "charge": this.charge,
         "cleaning": this.cleaning,
-        "": this.weight,
+        "product_weight": this.weight,
+        "weight_status":this.weightstatus
         // "":this.weightstatus,
       }
       this.easydeelservice.addgeneralshopmenu(req).subscribe(

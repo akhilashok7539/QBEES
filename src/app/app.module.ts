@@ -123,6 +123,7 @@ import { PharmacyMenuComponent } from './pharmacy-menu/pharmacy-menu.component';
 import { AddPharmacyMenuComponent } from './pharmacy-menu/add-pharmacy-menu/add-pharmacy-menu.component';
 import { EditPharmacyMenuComponent } from './pharmacy-menu/edit-pharmacy-menu/edit-pharmacy-menu.component';
 import { PharmacyOrdersComponent } from './pharmacy-orders/pharmacy-orders.component';
+import { GetallPrescriptionComponent } from './getall-prescription/getall-prescription.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -232,7 +233,8 @@ import { PharmacyOrdersComponent } from './pharmacy-orders/pharmacy-orders.compo
     PharmacyMenuComponent,
     AddPharmacyMenuComponent,
     EditPharmacyMenuComponent,
-    PharmacyOrdersComponent
+    PharmacyOrdersComponent,
+    GetallPrescriptionComponent
     // MatSort
   ],
   imports: [

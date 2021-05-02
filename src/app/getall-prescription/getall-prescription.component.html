@@ -1,0 +1,91 @@
+<app-header></app-header>
+<app-sidebar></app-sidebar>
+
+<div class="page-wrapper">
+
+    <div class="content">
+
+
+        <div class="row">
+            <div class="col-sm-8">
+                <h4 class="page-title">PRESCRIPTION ORDERS</h4>
+
+            </div>
+
+
+        </div>
+
+
+        <div class="row">
+            <div class="col-sm-12">
+
+                <mat-table [dataSource]="dataSource" matSort>
+
+                    <!--Order ID Column -->
+                    <ng-container matColumnDef="orderid">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Pharmacy Name </mat-header-cell>
+                        <mat-cell *matCellDef="let row;let i=index;">
+                            <p *ngIf="row.pharmacy_id != null">{{row.pharmacy_id.pharmacy_name}}</p>
+
+                            <p *ngIf="row.pharmacy_id == null">No Pharmacy</p>
+
+                        </mat-cell>
+
+                    </ng-container>
+                    <!-- Customer Address Column -->
+                    <ng-container matColumnDef="customeraddress">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Customer Name</mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+
+                            <p *ngIf="row.user_id != null">{{row.user_id.name}}</p>
+
+                            <p *ngIf="row.user_id == null">No User</p>
+                        </mat-cell>
+                    </ng-container>
+
+
+
+                    <!--Time Column -->
+                    <ng-container matColumnDef="time">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Description </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.description}} </mat-cell>
+                    </ng-container>
+
+
+                    <!--  Date Column -->
+                    <ng-container matColumnDef="date">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header> Contact </mat-header-cell>
+                        <mat-cell *matCellDef="let row"> {{row.contact }} </mat-cell>
+                    </ng-container>
+
+                    <!--     
+    Payment Type Column
+    <ng-container matColumnDef="paymenttype">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Payment Type</mat-header-cell>
+        <mat-cell *matCellDef="let row" > {{row.paymenttype}}  </mat-cell>
+      </ng-container> -->
+
+
+                    <!--  Order Status  Column -->
+                    <ng-container matColumnDef="ordertstatus">
+                        <mat-header-cell *matHeaderCellDef mat-sort-header>Download </mat-header-cell>
+                        <mat-cell *matCellDef="let row">
+                            <Button class="btn btn-dark"><a href="https://dashboard.qbees.in/prescription/get/image/{{row.presc_img}}" download="https://dashboard.qbees.in/prescription/get/image/{{row.presc_img}}" target="_blank">View</a> </Button> </mat-cell>
+                    </ng-container>
+
+
+                    <!--Assign  Column -->
+
+
+
+
+                    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                    <mat-row *matRowDef="let row; columns: displayedColumns;">
+                    </mat-row>
+                </mat-table>
+
+                <mat-paginator></mat-paginator>
+            </div>
+        </div>
+    </div>
+</div>

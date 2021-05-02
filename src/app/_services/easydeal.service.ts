@@ -451,4 +451,7 @@ updatepharmacymenu(req,id)
 {
   return this.http.patch(this.apiUrl+'medical_product/edit/'+id,req);
 }
+getallorderprescription(){
+  return this.http.get(this.apiUrl+'prescription');
+}
 }
